@@ -44,7 +44,21 @@ describe("Tic Tac JS", function () {
         expect(board[8]).toBeNull();
 
         // would it be better to loop through indices 2-8?
+
     });
+
+    it("should not fill in board slots that are already occupied", function () {
+        board = ["X", null, null, null, null, null, null, null, null];
+        spotFilled = placePiece(0, "O");
+        expect(spotFilled).toBeFalsy();
+    });
+
+    it("should fill in board slots that are empty", function () {
+        board = ["X", null, null, null, null, null, null, null, null];
+        spotFilled = placePiece(1, "O");
+        expect(spotFilled).toBeTruthy();
+    });
+
 
     // END STEP 2
 
